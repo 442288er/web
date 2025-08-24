@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML文件部署指南</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .card h2 {
+            color: #2575fc;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card h2 .icon {
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+        
+        .card p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .card ol, .card ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .card li {
+            margin-bottom: 8px;
+        }
+        
+        .code-block {
+            background: #2d3a4b;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .example-section {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
+        }
+        
+        .example-section h2 {
+            color: #2575fc;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #2575fc;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .btn:hover {
+            background: #1c64e0;
+        }
+        
+        .faq-section {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        
+        .faq-item h3 {
+            color: #2575fc;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #777;
+        }
+        
+        @media (max-width: 768px) {
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>HTML文件部署指南</h1>
+            <p class="subtitle">学习如何将HTML文件上传到您的网站</p>
+        </header>
+        
+        <div class="card-container">
+            <div class="card">
+                <h2><span class="icon">📤</span>使用FTP客户端</h2>
+                <p>通过FTP（文件传输协议）客户端将文件上传到服务器。</p>
+                <ol>
+                    <li>下载并安装FTP客户端（如FileZilla）</li>
+                    <li>获取您的FTP登录信息（主机、用户名、密码）</li>
+                    <li>连接到您的服务器</li>
+                    <li>将HTML文件拖放到public_html或www目录</li>
+                </ol>
+            </div>
+            
+            <div class="card">
+                <h2><span class="icon">🌐</span>使用cPanel文件管理器</h2>
+                <p>通过网站托管控制面板上传文件。</p>
+                <ol>
+                    <li>登录到您的cPanel</li>
+                    <li>打开"文件管理器"</li>
+                    <li>导航到public_html目录</li>
+                    <li>点击"上传"并选择您的HTML文件</li>
+                </ol>
+            </div>
+            
+            <div class="card">
+                <h2><span class="icon">⚡</span>使用Git部署</h2>
+                <p>通过版本控制系统部署您的网站。</p>
+                <ol>
+                    <li>初始化本地Git仓库</li>
+                    <li>将文件添加到仓库并提交更改</li>
+                    <li>添加远程仓库地址</li>
+                    <li>推送到远程仓库（如GitHub Pages）</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="example-section">
+            <h2>示例HTML文件</h2>
+            <p>您可以复制以下代码，保存为HTML文件并上传到您的网站进行测试：</p>
+            
+            <div class="code-block">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="zh-CN"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;我的第一个网页&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #3498db;
+        }
+        p {
+            color: #2c3e50;
+            font-size: 18px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;欢迎访问我的网站！&lt;/h1&gt;
+    &lt;p&gt;这是我上传的第一个HTML文件。&lt;/p&gt;
+    &lt;p&gt;恭喜！您的网站正在运行。&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </div>
+            
+            <button class="btn" onclick="copyCode()">复制代码</button>
+        </div>
+        
+        <div class="faq-section">
+            <h2>常见问题解答</h2>
+            
+            <div class="faq-item">
+                <h3>上传HTML文件后访问显示404错误？</h3>
+                <p>请确保文件已上传到正确的目录（通常是public_html或www），并且文件名没有拼写错误。</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>如何获取FTP登录信息？</h3>
+                <p>FTP登录信息通常可以在您的主机控制面板中找到，或者由您的托管服务提供商通过电子邮件发送给您。</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>上传后网页显示乱码？</h3>
+                <p>请确保您的HTML文件使用了正确的字符编码（如UTF-8），并在&lt;meta charset="UTF-8"&gt;中指定。</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>是否需要上传其他文件？</h3>
+                <p>如果您的HTML文件引用了CSS、JavaScript或图像文件，也需要将这些文件一并上传，并保持相同的目录结构。</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2023 HTML文件部署指南 | 为您提供简单易懂的网站部署教程</p>
+        </div>
+    </div>
+
+    <script>
+        function copyCode() {
+            const code = `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的第一个网页</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #3498db;
+        }
+        p {
+            color: #2c3e50;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>欢迎访问我的网站！</h1>
+    <p>这是我上传的第一个HTML文件。</p>
+    <p>恭喜！您的网站正在运行。</p>
+</body>
+</html>`;
+            
+            navigator.clipboard.writeText(code)
+                .then(() => {
+                    alert('代码已复制到剪贴板！');
+                })
+                .catch(err => {
+                    console.error('无法复制代码: ', err);
+                });
+        }
+    </script>
+</body>
+</html>
